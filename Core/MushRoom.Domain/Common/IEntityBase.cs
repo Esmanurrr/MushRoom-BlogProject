@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Domain.Common
 {
-    public interface ICreatedOn
+    public interface IEntityBase<TKey>
     {
-        public string? CreatedByUserId { get; set; }
-        public DateTimeOffset CreatedOn { get; set; }
+        public TKey Id { get; set; }
     }
 }

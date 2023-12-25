@@ -9,6 +9,6 @@ namespace MushRoom.Domain.Common
     public interface IModifiedOn
     {
         public string? ModifiedByUserId { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTimeOffset ModifiedOn { get; set; }
     }
 }
