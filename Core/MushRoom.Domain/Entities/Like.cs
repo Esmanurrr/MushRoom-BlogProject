@@ -10,7 +10,7 @@ namespace MushRoom.Domain.Entities
 {
     public class Like : EntityBase<Guid>
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public User User { get; set; }
         public Guid BlogPostId { get; set; }
         public BlogPost BlogPost { get; set; }
