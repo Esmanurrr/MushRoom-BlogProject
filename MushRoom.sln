@@ -9,9 +9,52 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4A8DC41C-E5A5-4F97-9541-D32986F1B2DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MushRoom.Domain", "Core\MushRoom.Domain\MushRoom.Domain.csproj", "{5A201AC8-EA8F-433A-99E2-F251A452B4EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MushRoom.Application", "Core\MushRoom.Application\MushRoom.Application.csproj", "{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MushRoom.Infrastructure", "Infrastructure\MushRoom.Infrastructure\MushRoom.Infrastructure.csproj", "{C008410B-7633-4B98-A838-702F72A57B02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MushRoom.Persistence", "Infrastructure\MushRoom.Persistence\MushRoom.Persistence.csproj", "{58C9BED0-827A-48F3-A18A-5230D17D3C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MushRoom.API", "Presentation\MushRoom.API\MushRoom.API.csproj", "{107756B6-3E5C-4B73-8613-A091FF70AECB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A201AC8-EA8F-433A-99E2-F251A452B4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A201AC8-EA8F-433A-99E2-F251A452B4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A201AC8-EA8F-433A-99E2-F251A452B4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A201AC8-EA8F-433A-99E2-F251A452B4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C008410B-7633-4B98-A838-702F72A57B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C008410B-7633-4B98-A838-702F72A57B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C008410B-7633-4B98-A838-702F72A57B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C008410B-7633-4B98-A838-702F72A57B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C9BED0-827A-48F3-A18A-5230D17D3C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C9BED0-827A-48F3-A18A-5230D17D3C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C9BED0-827A-48F3-A18A-5230D17D3C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C9BED0-827A-48F3-A18A-5230D17D3C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{107756B6-3E5C-4B73-8613-A091FF70AECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107756B6-3E5C-4B73-8613-A091FF70AECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107756B6-3E5C-4B73-8613-A091FF70AECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107756B6-3E5C-4B73-8613-A091FF70AECB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A201AC8-EA8F-433A-99E2-F251A452B4EC} = {400EA3F7-BADE-44CF-A062-D10EDA84D440}
+		{40FB56DF-C51F-47F7-BA68-6040C2A4A1C0} = {400EA3F7-BADE-44CF-A062-D10EDA84D440}
+		{C008410B-7633-4B98-A838-702F72A57B02} = {58885E69-1E56-44B7-8634-DAF9DC232E64}
+		{58C9BED0-827A-48F3-A18A-5230D17D3C46} = {58885E69-1E56-44B7-8634-DAF9DC232E64}
+		{107756B6-3E5C-4B73-8613-A091FF70AECB} = {4A8DC41C-E5A5-4F97-9541-D32986F1B2DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94441A69-2BA9-43F4-8F86-EB8F2CD0406B}
