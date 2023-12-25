@@ -1,4 +1,3 @@
-using MushRoom.Persistence.Contexts;
 using MushRoom.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
