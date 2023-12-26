@@ -25,7 +25,7 @@ namespace MushRoom.Persistence.Configurations
             builder.Property(x => x.ModifiedByUserId).HasMaxLength(75);
 
             // LastModifiedOn
-            builder.Property(x => x.ModifiedOn).IsRequired(false);
+            builder.Property(x => x.ModifiedOn).IsRequired();
 
 
             //Relationships
