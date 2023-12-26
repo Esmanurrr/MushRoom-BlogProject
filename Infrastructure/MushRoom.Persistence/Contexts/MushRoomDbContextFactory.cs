@@ -20,7 +20,7 @@ namespace MushRoom.Persistence.Contexts
 
             var optionsBuilder = new DbContextOptionsBuilder<MushRoomDbContext>();
 
-            var connectionString = configuration.GetSection("Team7PostgreSQLDB").Value;
+            var connectionString = configuration.GetSection("Team4Ever").Value;
 
 
             optionsBuilder.UseNpgsql(connectionString);

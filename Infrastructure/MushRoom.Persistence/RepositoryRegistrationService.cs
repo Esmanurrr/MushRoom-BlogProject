@@ -16,7 +16,14 @@ namespace MushRoom.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<MushRoomDbContext>();
-           /* services.AddIdentity<User, Role>(options =>
+
+            /*string connectionString = services.Configuration.GetSection("Team4Ever").Value;
+            services.AddDbContext<MushRoomDbContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+            });*/
+
+            services.AddIdentity<User,Role>(options =>
             {
                 options.Password.RequiredLength = 3;
                 options.Password.RequireNonAlphanumeric = false;
@@ -24,7 +31,7 @@ namespace MushRoom.Persistence
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<MushRoomDbContext>(); */
+            }).AddEntityFrameworkStores<MushRoomDbContext>(); 
 
 
         }
