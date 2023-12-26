@@ -20,8 +20,4 @@
     <ProjectReference Include="..\..\Infrastructure\MushRoom.Persistence\MushRoom.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
