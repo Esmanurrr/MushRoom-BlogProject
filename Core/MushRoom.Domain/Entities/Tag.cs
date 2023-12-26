@@ -10,6 +10,7 @@ namespace MushRoom.Domain.Entities
     public class Tag : EntityBase<Guid>
     {
         public string Name { get; set; }
-        public BlogPost BlogPost { get; set; }
+        public ICollection<BlogPostTag> BlogPostTags { get; set; }
+
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MushRoom.Domain.Common;
-using MushRoom.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Domain.Entities
 {
-    public class Comment : EntityBase<Guid>
+    public class BlogPostTag : ICreatedOn
     {
-        public string Content { get; set; }
-        public Guid UserId { get; set; }
-        public User User { get; set; }
         public Guid BlogPostId { get; set; }
         public BlogPost BlogPost { get; set; }
-        public ICollection<Like> Likes { get; set; }
+        public Guid TagId { get; set; }
+        public Tag Tag { get; set; }
+        public string? CreatedByUserId { get; set;}
+        public DateTimeOffset CreatedOn { get; set; }
     }
 }

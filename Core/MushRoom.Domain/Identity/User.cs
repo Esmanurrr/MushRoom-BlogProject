@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using MushRoom.Domain.Common;
+using MushRoom.Domain.Entities;
 using MushRoom.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,14 @@ namespace MushRoom.Domain.Identity
         public DateTimeOffset CreatedOn { get; set; }
         public string? ModifiedByUserId { get; set; }
         public DateTimeOffset ModifiedOn { get; set; }
+
+        public ICollection<BlogPost> BlogPosts { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Like> Likes { get; set; }
+
+        public Guid RoleId { get; set; }
+        public Role Role { get; set; }
+
 
     }
 }
