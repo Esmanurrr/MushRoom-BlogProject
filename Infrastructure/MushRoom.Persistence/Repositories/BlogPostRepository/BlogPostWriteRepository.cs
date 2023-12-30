@@ -1,4 +1,5 @@
-﻿using MushRoom.Domain.Entities;
+﻿using MushRoom.Application.Repositories.BlogPostRepository;
+using MushRoom.Domain.Entities;
 using MushRoom.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks.Dataflow;
 
 namespace MushRoom.Persistence.Repositories.BlogPostRepository
 {
-    public class BlogPostWriteRepository : WriteRepository<BlogPost, Guid>
+    public class BlogPostWriteRepository : WriteRepository<BlogPost, Guid>, IBlogPostWriteRepository
     {
         public BlogPostWriteRepository(MushRoomDbContext dbContext) : base(dbContext)
         {
