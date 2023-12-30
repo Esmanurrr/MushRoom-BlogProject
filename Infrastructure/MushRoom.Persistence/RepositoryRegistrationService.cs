@@ -1,8 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MushRoom.Application.Repositories.BlogPostRepository;
+using MushRoom.Application.Repositories.CommentRepository;
 using MushRoom.Domain.Identity;
 using MushRoom.Persistence.Contexts;
+using MushRoom.Persistence.Repositories.BlogPostRepository;
+using MushRoom.Persistence.Repositories.CommentRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +35,10 @@ namespace MushRoom.Persistence
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<MushRoomDbContext>(); 
+            }).AddEntityFrameworkStores<MushRoomDbContext>();
 
+            services.AddScoped<IBlogPostReadRepository, BlogPostReadRepository>();
+            services.AddScoped<IBlogPostWriteRepository, BlogPostWriteRepository>();
 
         }
 
