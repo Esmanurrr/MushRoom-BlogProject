@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Application.Repositories.CommentRepository
 {
-    internal class ICommentWriteRepository
+    public interface ICommentWriteRepository
     {
     }
 }

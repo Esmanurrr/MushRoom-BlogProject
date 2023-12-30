@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Application.Repositories.TagRepository
 {
-    internal class ITagReadRepository
+    public interface ITagReadRepository
     {
     }
 }

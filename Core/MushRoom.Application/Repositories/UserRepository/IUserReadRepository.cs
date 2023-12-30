@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Application.Repositories.UserRepository
 {
-    internal class IUserReadRepository
+    public interface IUserReadRepository
     {
     }
 }
