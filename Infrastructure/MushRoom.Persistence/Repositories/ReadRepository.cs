@@ -27,7 +27,7 @@ namespace MushRoom.Persistence.Repositories
 
         public T GetById(TKey id)
         {
-            return Table.Select(x=>x.Id== id).FirstOrDefault();
+            return Table.FirstOrDefault(x => EqualityComparer<TKey>.Default.Equals(x.Id, id));
         }
     }
 }

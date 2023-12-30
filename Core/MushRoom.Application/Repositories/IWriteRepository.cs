@@ -10,6 +10,6 @@ namespace MushRoom.Application.Repositories
     public interface IWriteRepository<T, TKey>: IRepository<T, TKey> where T: EntityBase<TKey>
     {
         void Add(T entity);
-        void Delete(string id);
+        void Delete(TKey id);
     }
 }

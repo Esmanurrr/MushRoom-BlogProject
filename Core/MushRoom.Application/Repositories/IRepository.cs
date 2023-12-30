@@ -10,6 +10,6 @@ namespace MushRoom.Application.Repositories
 {
     public interface IRepository<T, TKey> where T: EntityBase<TKey>
     {
-        DbSet<T> Table {get; set;}
+        DbSet<T> Table {get;}
     }
 }
