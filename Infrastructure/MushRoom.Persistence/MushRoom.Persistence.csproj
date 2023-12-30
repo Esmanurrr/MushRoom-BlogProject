@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\MushRoom.Application\MushRoom.Application.csproj" />
     <ProjectReference Include="..\..\Core\MushRoom.Domain\MushRoom.Domain.csproj" />
   </ItemGroup>
 
