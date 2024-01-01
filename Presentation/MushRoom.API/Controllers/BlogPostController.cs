@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MushRoom.Application.Features.Commands.BlogPostCommands.Add;
+using MushRoom.Application.Features.Queries.BlogPostQueries;
 using MushRoom.Application.Repositories.BlogPostRepository;
 using MushRoom.Domain.Entities;
 using MushRoom.Persistence.Repositories.BlogPostRepository;
@@ -22,13 +23,14 @@ namespace MushRoom.API.Controllers
             _mediator = mediator;
         }
         [HttpGet("[action]")]
-        public List<BlogPost> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery]  GetAllBlogPostQueryRequest request)
         {
-            return _blogPostReadRepository.GetAll();
+            List<GetAllBlogPostQueryResponse> allPosts = await _mediator.Send(request);
+            return Ok(allPosts);
 
         }
 
-        [HttpGet("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> Add(AddBlogPostCommandRequest addBlogPostCommandRequest)
         {
             var response = await _mediator.Send(addBlogPostCommandRequest);
