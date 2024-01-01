@@ -9,5 +9,6 @@ namespace MushRoom.Application.Features.Commands.BlogPostCommands.Add
 {
     public class AddBlogPostCommandResponse
     {
+        public bool IsSuccess { get; set; }
     }
 }

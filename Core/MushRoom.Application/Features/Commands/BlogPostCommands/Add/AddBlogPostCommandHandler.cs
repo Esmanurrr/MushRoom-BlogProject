@@ -27,11 +27,16 @@ namespace MushRoom.Application.Features.Commands.BlogPostCommands.Add
                 Id = Guid.NewGuid(),
                 Title = request.Title,
                 Content = request.Content,
-                //User = request.User,
+                /*User = request.User,
+                UserId= request.User.Id,
+                CreatedOn = DateTime.UtcNow,
+                ModifiedOn = DateTime.UtcNow,
+                IsDeleted=false*/
+
             };
 
           _blogPostWriteRepository.Add(blogPost);
-          //_blogPostWriteRepository.SaveChanges();
+          _blogPostWriteRepository.SaveChanges();
 
             return Task.FromResult(new AddBlogPostCommandResponse()); 
         }

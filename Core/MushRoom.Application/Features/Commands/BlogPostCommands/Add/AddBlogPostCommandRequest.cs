@@ -13,8 +13,8 @@ public class AddBlogPostCommandRequest : IRequest<AddBlogPostCommandResponse>
 {
     public string Title {  get; set; }
     public string Content { get; set; }
-
-   // public User User { get; set; }
+   // public User User { get; set; } user eklendiğinde o an aktif olan user'ı atarız
+   
   
 
 }
