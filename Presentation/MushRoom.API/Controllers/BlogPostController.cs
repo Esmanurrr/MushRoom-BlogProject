@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MushRoom.Application.Features.Commands.BlogPostCommands.Add;
-using MushRoom.Application.Features.Queries.BlogPostQueries;
+using MushRoom.Application.Features.Queries.BlogPostQueries.GetAll;
 using MushRoom.Application.Repositories.BlogPostRepository;
 using MushRoom.Domain.Entities;
 using MushRoom.Persistence.Repositories.BlogPostRepository;

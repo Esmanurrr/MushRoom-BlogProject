@@ -27,6 +27,7 @@ namespace MushRoom.Application.Features.Commands.BlogPostCommands.Add
                 Id = Guid.NewGuid(),
                 Title = request.Title,
                 Content = request.Content,
+                CreatedByUserId = "Liva",
                 /*User = request.User,
                 UserId= request.User.Id,
                 CreatedOn = DateTime.UtcNow,
