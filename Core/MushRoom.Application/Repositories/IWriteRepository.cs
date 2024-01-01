@@ -11,5 +11,6 @@ namespace MushRoom.Application.Repositories
     {
         void Add(T entity);
         void Delete(TKey id);
+        void SaveChanges();
     }
 }
