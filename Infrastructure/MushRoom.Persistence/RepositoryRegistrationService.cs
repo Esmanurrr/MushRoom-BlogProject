@@ -17,16 +17,21 @@ namespace MushRoom.Persistence
 {
     public static class RepositoryRegistrationService
     {
-        public static void AddPersistenceServices(this IServiceCollection services)
+        public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<MushRoomDbContext>();
+             //services.AddDbContext<MushRoomDbContext>();
 
             /*string connectionString = services.Configuration.GetSection("Team4Ever").Value;
             services.AddDbContext<MushRoomDbContext>(options =>
             {
                 options.UseNpgsql(connectionString);
             });*/
+            var connectionString = configuration.GetConnectionString("Team4Ever");
 
+            services.AddDbContext<MushRoomDbContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+            });
             services.AddIdentity<User,Role>(options =>
             {
                 options.Password.RequiredLength = 3;
