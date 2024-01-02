@@ -36,7 +36,7 @@ namespace MushRoom.Application.Features.Commands.BlogPostCommands.Edit
             post.Title = request.Title;
             post.Content = request.Content;
             _writeRepository.SaveChanges();
-            return new();
+            return new();//burayı diğer editler gibi yapmalı mıyız?
 
 
         }

@@ -11,7 +11,7 @@ namespace MushRoom.Application.Features.Queries.BlogPostQueries.GetAll
     {
         //List<BlogPost> blogPosts;
         //public BlogPost post {  get; set; }
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }//TKey yapabiliriz
         public string Title { get; set; }
         public string Content { get; set; }
         public string Username { get; set; }
