@@ -30,6 +30,12 @@ namespace MushRoom.Persistence.Repositories
             var entity = Table.FirstOrDefault(x=> EqualityComparer<TKey>.Default.Equals(x.Id, id));
             Table.Remove(entity);
         }
+        public void Edit(TKey entity)
+        {
+        
+            _context.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+        }
 
         public void SaveChanges()
         {
