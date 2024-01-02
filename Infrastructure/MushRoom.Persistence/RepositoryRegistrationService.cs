@@ -44,7 +44,8 @@ namespace MushRoom.Persistence
 
             services.AddScoped<IBlogPostReadRepository, BlogPostReadRepository>();
             services.AddScoped<IBlogPostWriteRepository, BlogPostWriteRepository>();
-
+            services.AddScoped<ICommentReadRepository, CommentReadRepository>();
+            services.AddScoped<ICommentWriteRepository, CommentWriteRepository>();
         }
 
 
