@@ -3,10 +3,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MushRoom.Application.Repositories.BlogPostRepository;
 using MushRoom.Application.Repositories.CommentRepository;
+using MushRoom.Application.Repositories.TagRepository;
 using MushRoom.Domain.Identity;
 using MushRoom.Persistence.Contexts;
 using MushRoom.Persistence.Repositories.BlogPostRepository;
 using MushRoom.Persistence.Repositories.CommentRepository;
+using MushRoom.Persistence.Repositories.TagRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +48,8 @@ namespace MushRoom.Persistence
             services.AddScoped<IBlogPostWriteRepository, BlogPostWriteRepository>();
             services.AddScoped<ICommentReadRepository, CommentReadRepository>();
             services.AddScoped<ICommentWriteRepository, CommentWriteRepository>();
+            services.AddScoped<ITagReadRepository, TagReadRepository>();
+            services.AddScoped<ITagWriteRepository, TagWriteRepository>();
         }
 
 
