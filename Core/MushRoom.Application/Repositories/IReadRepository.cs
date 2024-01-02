@@ -11,6 +11,6 @@ namespace MushRoom.Application.Repositories
     public interface IReadRepository<T, TKey>: IRepository<T, TKey> where T : EntityBase<TKey>
     {
         List<T> GetAll();
-        T GetById(TKey id);
+       T GetById(TKey id);
     }
 }

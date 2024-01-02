@@ -1,4 +1,5 @@
 ﻿using MushRoom.Domain.Common;
+using MushRoom.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MushRoom.Application.Repositories
     {
         void Add(T entity);
         void Delete(TKey id);
+        void Edit(TKey entity);
         void SaveChanges();
     }
 }
