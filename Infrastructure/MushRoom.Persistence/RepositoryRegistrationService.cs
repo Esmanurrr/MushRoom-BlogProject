@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MushRoom.Application;
 using MushRoom.Application.Repositories.BlogPostRepository;
 using MushRoom.Application.Repositories.CommentRepository;
 using MushRoom.Application.Repositories.TagRepository;
@@ -9,6 +11,7 @@ using MushRoom.Persistence.Contexts;
 using MushRoom.Persistence.Repositories.BlogPostRepository;
 using MushRoom.Persistence.Repositories.CommentRepository;
 using MushRoom.Persistence.Repositories.TagRepository;
+using MushRoom.Persistence.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +37,11 @@ namespace MushRoom.Persistence
             {
                 options.UseNpgsql(connectionString);
             });
-            services.AddIdentity<User,Role>(options =>
+            services.AddDbContext<BlogIdentityDbContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+            });
+            services.AddIdentity<AppUser,IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 3;
                 options.Password.RequireNonAlphanumeric = false;
@@ -42,7 +49,7 @@ namespace MushRoom.Persistence
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<MushRoomDbContext>();
+            }).AddEntityFrameworkStores<BlogIdentityDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IBlogPostReadRepository, BlogPostReadRepository>();
             services.AddScoped<IBlogPostWriteRepository, BlogPostWriteRepository>();
