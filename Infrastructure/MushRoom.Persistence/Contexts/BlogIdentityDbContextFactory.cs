@@ -9,23 +9,26 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Persistence.Contexts
 {
-    public class MushRoomDbContextFactory : IDesignTimeDbContextFactory<MushRoomDbContext>
+    public class BlogIdentityDbContextFactory:IDesignTimeDbContextFactory<BlogIdentityDbContext>
     {
-        public MushRoomDbContext CreateDbContext(string[] args)
+        public BlogIdentityDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                  .SetBasePath($"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName}\\Presentation\\MushRoom.API\\")
                  .AddJsonFile("appsettings.json")
                  .Build();
 
-            var optionsBuilder = new DbContextOptionsBuilder<MushRoomDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<BlogIdentityDbContext>();
 
             var connectionString = configuration.GetConnectionString("Team4Ever");
 
 
             optionsBuilder.UseNpgsql(connectionString);
 
-            return new MushRoomDbContext(optionsBuilder.Options); 
+            return new BlogIdentityDbContext(optionsBuilder.Options);
         }
     }
+    
 }
+
+
