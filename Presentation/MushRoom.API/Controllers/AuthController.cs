@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MushRoom.API.Identity;
 using MushRoom.API.Models;
 using MushRoom.Application;
 using MushRoom.Domain.Identity;
