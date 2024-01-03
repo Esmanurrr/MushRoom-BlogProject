@@ -10,7 +10,7 @@ namespace MushRoom.Application.Features.Commands.CommentCommands.Add
     public class AddCommentCommandRequest : IRequest<AddCommentCommandResponse>
     {
         public string Content { get; set; }
-        public Guid UserId { get; set; }
+        public Guid AppUserId { get; set; }
         public Guid BlogPostId { get; set; }
 
     }

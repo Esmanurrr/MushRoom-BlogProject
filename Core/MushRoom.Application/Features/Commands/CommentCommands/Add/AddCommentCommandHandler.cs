@@ -25,7 +25,7 @@ namespace MushRoom.Application.Features.Commands.CommentCommands.Add
             var comment = new Comment
             {
                 Content = request.Content,
-                UserId = request.UserId,
+                AppUserId = request.AppUserId,
                 BlogPostId = request.BlogPostId
             };
 

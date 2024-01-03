@@ -12,8 +12,8 @@ namespace MushRoom.Domain.Entities
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public Guid UserId { get; set; }
-        public User User { get; set; }
+        public Guid AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<BlogPostTag> BlogPostTags { get; set; }
