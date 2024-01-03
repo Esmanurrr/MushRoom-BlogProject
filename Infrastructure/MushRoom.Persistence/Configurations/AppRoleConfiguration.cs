@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Persistence.Configurations
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<Role>
-    {
-        public void Configure(EntityTypeBuilder<Role> builder)
+    public class AppRoleConfiguration
+    {/*
+        public void Configure(EntityTypeBuilder<AppRole> builder)
         {
             // CreatedByUserId
             builder.Property(x => x.CreatedByUserId).IsRequired();
@@ -30,12 +30,12 @@ namespace MushRoom.Persistence.Configurations
 
             //Relationships
 
-            //Among User and BlogPost
-            builder.HasMany(x => x.Users)
-                   .WithOne(x => x.Role)
-                   .HasForeignKey(x => x.RoleId);
+            //Among AppUser and BlogPost
+            builder.HasMany(x => x.AppUsers)
+                   .WithOne(x => x.AppRole)
+                   .HasForeignKey(x => x.AppRoleId);
 
             builder.ToTable("Role");
-        }
+        }*/
     }
 }

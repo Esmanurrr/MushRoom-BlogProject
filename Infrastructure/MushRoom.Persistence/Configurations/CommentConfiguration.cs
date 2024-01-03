@@ -41,17 +41,17 @@ namespace MushRoom.Persistence.Configurations
             builder.Property(x => x.DeletedByUserId).HasMaxLength(75);
 
             // DeletedOn
-            builder.Property(x => x.DeletedOn).IsRequired();
+            builder.Property(x => x.DeletedOn).IsRequired(false);
 
             // IsDeleted
             builder.Property(x => x.IsDeleted).IsRequired();
 
             // Relationships
 
-            // Among Comment and User
-            builder.HasOne(x => x.User)
+            // Among Comment and AppUser
+            builder.HasOne(x => x.AppUser)
                 .WithMany(x => x.Comments)
-                .HasForeignKey(x => x.UserId);
+                .HasForeignKey(x => x.AppUserId);
 
             // Among Comment and BlogPost
             builder.HasOne(x => x.BlogPost)
