@@ -22,12 +22,12 @@ namespace MushRoom.Persistence.Repositories
 
         public List<T> GetAll()
         {
-            return Table.ToList();
+            return Table.Where(x=> x.IsDeleted != true).ToList();
         }
 
         public T GetById(TKey id)
         {
-            return Table.FirstOrDefault(x => EqualityComparer<TKey>.Default.Equals(x.Id, id));
+            return Table.FirstOrDefault(x => x.Id.Equals(id) && x.IsDeleted != true);
         }
     }
 }

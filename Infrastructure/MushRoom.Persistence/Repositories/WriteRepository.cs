@@ -27,8 +27,9 @@ namespace MushRoom.Persistence.Repositories
 
         public void Delete(TKey id)
         {
-            var entity = Table.FirstOrDefault(x=> EqualityComparer<TKey>.Default.Equals(x.Id, id));
-            Table.Remove(entity);
+            var entity = Table.FirstOrDefault(x => x.Id.Equals(id));
+            entity.IsDeleted = true;
+            //Table.Remove(entity);
         }
         public void Edit(TKey entity)
         {
