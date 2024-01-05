@@ -6,6 +6,8 @@ using MushRoom.Application.Features.Queries.TagQueries.GetAll;
 using MushRoom.Application.Features.Commands.TagCommands.Add;
 using MushRoom.Application.Features.Commands.TagCommands.Delete;
 using MushRoom.Application.Features.Commands.TagCommands.Edit;
+using MushRoom.Application.Features.Queries.CommentQueries.GetById;
+using MushRoom.Application.Features.Queries.TagQueries.GetById;
 
 namespace MushRoom.API.Controllers
 {
@@ -26,6 +28,11 @@ namespace MushRoom.API.Controllers
             List<GetAllTagQueryResponse> allPosts = await _mediator.Send(request);
             return Ok(allPosts);
 
+        }
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] GetByIdTagQueryRequest<Guid> getByIdTagQueryRequest)
+        {
+            return Ok(await _mediator.Send(getByIdTagQueryRequest));
         }
 
         [HttpPost("[action]")]
