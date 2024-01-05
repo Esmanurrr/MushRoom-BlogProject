@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MushRoom.Application.Features.Commands.BlogPostCommands.Add;
+using MushRoom.Application.Features.Commands.CommentCommands.Add;
 using MushRoom.Application.Repositories.TagRepository;
 using MushRoom.Domain.Entities;
 using System;
@@ -19,7 +20,7 @@ namespace MushRoom.Application.Features.Commands.TagCommands.Add
             _writeRepository = writeRepository;
         }
 
-        public  Task<AddTagCommandResponse> Handle(AddTagCommandRequest request, CancellationToken cancellationToken)
+        public async  Task<AddTagCommandResponse> Handle(AddTagCommandRequest request, CancellationToken cancellationToken)
         {
             Tag tag = new Tag()
             {
@@ -34,7 +35,12 @@ namespace MushRoom.Application.Features.Commands.TagCommands.Add
             _writeRepository.Add(tag);
             _writeRepository.SaveChanges();
 
-            return Task.FromResult(new AddTagCommandResponse());
+            var response = new AddTagCommandResponse
+            {
+                IsSuccess = tag.Id != Guid.Empty
+            };
+
+            return response;
         }
     }
 }
