@@ -34,7 +34,10 @@ namespace MushRoom.Application.Features.Queries.BlogPostQueries.GetAll
                     Title = post.Title,
                     Id = post.Id,
                     Tags = post.BlogPostTags,
-                    Username = post.AppUser.UserName
+                    //Username = post.AppUser.UserName,
+                    //Username = post.AppUser?.FirstName + " " + post.AppUser?.SurName // tekrar bak
+                   // Username = post.AppUserId
+                    
                 };
                 allPosts.Add(obj);
 

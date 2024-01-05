@@ -33,10 +33,16 @@ namespace MushRoom.Application.Features.Commands.BlogPostCommands.Edit
             //return new();
 
             BlogPost post = _readRepository.GetById(request.Id);
-            post.Title = request.Title;
-            post.Content = request.Content;
-            _writeRepository.SaveChanges();
-            return new();//burayı diğer editler gibi yapmalı mıyız?
+            if(post is not null)
+            {
+                post.Title = request.Title;
+                post.Content = request.Content;
+                _writeRepository.SaveChanges();
+
+                return new() { IsSuccess = true };
+            }
+            
+            return new() { IsSuccess=false};
 
 
         }

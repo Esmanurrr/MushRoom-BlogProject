@@ -57,8 +57,8 @@ namespace MushRoom.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Edit([FromBody] EditBlogPostCommandRequest<Guid> request)
         {
-            await _mediator.Send(request);
-            return Ok();
+           
+            return Ok( await _mediator.Send(request));
         }
     }
 }

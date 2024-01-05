@@ -13,7 +13,9 @@ public class AddBlogPostCommandRequest : IRequest<AddBlogPostCommandResponse>
 {
     public string Title {  get; set; }
     public string Content { get; set; }
-   // public AppUser AppUser { get; set; } user eklendiğinde o an aktif olan user'ı atarız
+    public Guid UserId { get; set; }
+    
+   // public AppUser AppUser { get; set; }// user eklendiğinde o an aktif olan user'ı atarız
    
   
 
