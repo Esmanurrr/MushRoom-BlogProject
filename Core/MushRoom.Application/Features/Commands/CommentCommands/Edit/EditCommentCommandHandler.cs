@@ -31,7 +31,7 @@ namespace MushRoom.Application.Features.Commands.CommentCommands.Edit
                 comment.Content = request.NewContent;
                 // Diğer özelliklerin güncellenmesi
 
-                _commentWriteRepository.Edit(comment.Id);
+                //_commentWriteRepository.Edit(comment.Id);
                 _commentWriteRepository.SaveChanges();
 
                 return new EditCommentCommandResponse { IsSuccess = true };

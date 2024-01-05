@@ -27,7 +27,10 @@ namespace MushRoom.Application.Features.Commands.CommentCommands.Add
                 Content = request.Content,
                 AppUserId = request.AppUserId,
                 BlogPostId = request.BlogPostId,
-                 CreatedByUserId = "livos",
+                CreatedByUserId = "livos",
+                CreatedOn = DateTime.UtcNow,
+                ModifiedOn = DateTime.UtcNow,
+                IsDeleted = false
             };
 
             _commentWriteRepository.Add(comment);
