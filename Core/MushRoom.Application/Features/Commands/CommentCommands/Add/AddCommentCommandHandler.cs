@@ -26,13 +26,14 @@ namespace MushRoom.Application.Features.Commands.CommentCommands.Add
             {
                 Content = request.Content,
                 AppUserId = request.AppUserId,
-                BlogPostId = request.BlogPostId
+                BlogPostId = request.BlogPostId,
+                 CreatedByUserId = "livos",
             };
 
             _commentWriteRepository.Add(comment);
             _commentWriteRepository.SaveChanges();
 
-            // Eklendiyse yanıt oluşturma
+            // eklendiyse yanıt
             var response = new AddCommentCommandResponse
             {
                 IsSuccess = comment.Id != Guid.Empty

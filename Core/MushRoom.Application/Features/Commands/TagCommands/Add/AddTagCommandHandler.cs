@@ -25,7 +25,8 @@ namespace MushRoom.Application.Features.Commands.TagCommands.Add
             {
                 Name = request.Name,
                 Id= Guid.NewGuid(),
-                CreatedOn= DateTime.UtcNow,
+                CreatedByUserId = "zbd",
+                CreatedOn = DateTime.UtcNow,
                 ModifiedOn= DateTime.UtcNow,
                 IsDeleted=false
 
