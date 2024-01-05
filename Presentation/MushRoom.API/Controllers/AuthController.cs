@@ -43,8 +43,8 @@ namespace MushRoom.API.Controllers
         }
 
         [HttpPost]
-        [Route("registeration")]
-        public async Task<IActionResult> Register(RegistrationModel model)
+        [Route("registerationAdmin")]
+        public async Task<IActionResult> RegisterAdmin(RegistrationModel model)
         {
             try
             {
@@ -55,7 +55,29 @@ namespace MushRoom.API.Controllers
                 {
                     return BadRequest(message);
                 }
-                return CreatedAtAction(nameof(Register), model);
+                return CreatedAtAction(nameof(RegisterAdmin), model);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("registerationUser")]
+        public async Task<IActionResult> RegisterUser(RegistrationModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest("Invalid payload");
+                var (status, message) = await _authService.Registeration(model, AppRole.User);
+                if (status == 0)
+                {
+                    return BadRequest(message);
+                }
+                return CreatedAtAction(nameof(RegisterUser), model);
 
             }
             catch (Exception ex)
