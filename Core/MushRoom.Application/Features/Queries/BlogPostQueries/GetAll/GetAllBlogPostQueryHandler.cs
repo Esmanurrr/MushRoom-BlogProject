@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using MediatR.NotificationPublishers;
+using Microsoft.AspNetCore.Identity;
 using MushRoom.Application.Repositories.BlogPostRepository;
 using MushRoom.Domain.Entities;
+using MushRoom.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +16,11 @@ namespace MushRoom.Application.Features.Queries.BlogPostQueries.GetAll
         IRequestHandler<GetAllBlogPostQueryRequest, List<GetAllBlogPostQueryResponse>>
     {
         private readonly IBlogPostReadRepository _blogPostReadRepository;
-
-        public GetAllBlogPostQueryHandler(IBlogPostReadRepository blogPostReadRepository)
+        private readonly UserManager<AppUser> _userManager;
+        public GetAllBlogPostQueryHandler(IBlogPostReadRepository blogPostReadRepository, UserManager<AppUser> userManager)
         {
             _blogPostReadRepository = blogPostReadRepository;
+            _userManager = userManager;
         }
 
         public async Task<List<GetAllBlogPostQueryResponse>> Handle(GetAllBlogPostQueryRequest request, CancellationToken cancellationToken)
@@ -28,6 +31,8 @@ namespace MushRoom.Application.Features.Queries.BlogPostQueries.GetAll
 
             foreach (var post in posts)
             {
+                var appUser = await _userManager.FindByIdAsync(post.AppUserId.ToString());
+                string username = $"{appUser?.FirstName} {appUser?.SurName}"; 
                 GetAllBlogPostQueryResponse obj = new()
                 {
                     Content = post.Content,
@@ -35,8 +40,9 @@ namespace MushRoom.Application.Features.Queries.BlogPostQueries.GetAll
                     Id = post.Id,
                     Tags = post.BlogPostTags,
                     //Username = post.AppUser.UserName,
-                    //Username = post.AppUser?.FirstName + " " + post.AppUser?.SurName // tekrar bak
+                    //Username = post.AppUserId.ToString(),
                    // Username = post.AppUserId
+                   Username = username,
                     
                 };
                 allPosts.Add(obj);
