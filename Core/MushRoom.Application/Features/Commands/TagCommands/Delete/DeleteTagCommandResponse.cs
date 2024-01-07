@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MushRoom.Application.Features.Commands.TagCommands.Delete
+{
+    public class DeleteTagCommandResponse
+    {
+        public bool IsSuccess { get; set; }
+    }
+}

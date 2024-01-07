@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MushRoom.Persistence.Configurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             // Primary key
             builder.HasKey(x => x.Id);
@@ -45,40 +45,25 @@ namespace MushRoom.Persistence.Configurations
             //BirthDate
             builder.Property(x => x.BirthDate).IsRequired(false);
 
-            //Common Fields
-
-            // CreatedByUserId
-            builder.Property(x => x.CreatedByUserId).IsRequired();
-            builder.Property(x => x.CreatedByUserId).HasMaxLength(75);
-
-            // CreatedOn
-            builder.Property(x => x.CreatedOn).IsRequired();
-
-            // ModifiedByUserId
-            builder.Property(x => x.ModifiedByUserId).IsRequired(false);
-            builder.Property(x => x.ModifiedByUserId).HasMaxLength(75);
-
-            // LastModifiedOn
-            builder.Property(x => x.ModifiedOn).IsRequired();
 
             //Relationships
 
             //Among User and BlogPost
             builder.HasMany(x => x.BlogPosts)
-                   .WithOne(x => x.User)
-                   .HasForeignKey(x => x.UserId);
+                   .WithOne(x => x.AppUser)
+                   .HasForeignKey(x => x.AppUserId);
 
             //Among User and Comment
             builder.HasMany(x => x.Comments)
-                   .WithOne(x => x.User)
-                   .HasForeignKey(x => x.UserId);
+                   .WithOne(x => x.AppUser)
+                   .HasForeignKey(x => x.AppUserId);
 
             //Among User and Like
             builder.HasMany(x => x.Likes)
-                   .WithOne(x => x.User)
-                   .HasForeignKey(x => x.UserId);
+                   .WithOne(x => x.AppUser)
+                   .HasForeignKey(x => x.AppUserId);
 
-            builder.ToTable("Users");
+            builder.ToTable("AppUsers");
          
         }
     }

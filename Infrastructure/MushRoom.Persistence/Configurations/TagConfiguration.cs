@@ -43,7 +43,7 @@ namespace MushRoom.Persistence.Configurations
             builder.Property(x => x.DeletedByUserId).HasMaxLength(75);
 
             // DeletedOn
-            builder.Property(x => x.DeletedOn).IsRequired();
+            builder.Property(x => x.DeletedOn).IsRequired(false);
 
             // IsDeleted
             builder.Property(x => x.IsDeleted).IsRequired();

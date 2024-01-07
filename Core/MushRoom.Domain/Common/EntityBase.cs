@@ -17,7 +17,7 @@ namespace MushRoom.Domain.Common
         public DateTimeOffset ModifiedOn { get; set; }
 
         public string? DeletedByUserId { get; set; }
-        public DateTimeOffset DeletedOn { get; set; }
+        public DateTimeOffset? DeletedOn { get; set; }
         public bool IsDeleted { get; set; }
     }
 }
